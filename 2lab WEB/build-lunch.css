@@ -1,0 +1,106 @@
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.dish-card {
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 35px;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    transition: all 0.2s ease;
+}
+
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+.dish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+.dish-card .dish-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dish-card .dish-name {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.dish-card .dish-weight {
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.dish-card .add-button {
+    background-color: #f1eee9;
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin-top: auto;
+    border: none;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dish-card:hover .add-button {
+    background-color: #d3d1cb;
+}
+
+.dish-card .add-button:hover {
+    background-color: tomato;
+    color: white;
+}
+
+/* <= 800px */
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dish-card {
+        padding: 20px 30px;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+}
+
+/* <= 600px */
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 1.25em; /* 1em = 16px → +4px = 20px; но 24px слишком крупно, лучше относительно */
+    }
+
+    section h2 {
+        text-align: center;
+    }
+}
