@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математическая игра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Математическая игра</h1>
+        
+        <div id="start-screen">
+            <h2>Выберите уровень сложности</h2>
+            <div class="answer-form">
+                <button id="start-easy">Начальный уровень</button>
+                <button id="start-medium">Средний уровень</button>
+                <button id="start-hard">Продвинутый уровень</button>
+            </div>
+        </div>
+        
+        <div id="game-screen" class="hidden">
+            <div class="level-info">
+                Уровень: <span id="current-level">Начальный</span>
+            </div>
+            
+            <div class="stats">
+                <div>Правильные: <span id="correct-count">0</span></div>
+                <div>Неправильные: <span id="incorrect-count">0</span></div>
+                <div>Вопрос: <span id="question-number">1</span>/10</div>
+            </div>
+            
+            <div class="question" id="question"></div>
+            
+            <div class="answer-form">
+                <input type="text" id="answer-input" placeholder="Ваш ответ">
+                <button id="submit-answer">Ответить</button>
+                <button id="stop-game" class="stop-btn">Остановить игру</button>
+            </div>
+        </div>
+        
+        <div id="result-screen" class="hidden">
+            <h2>Результаты игры</h2>
+            <div class="result" id="final-result"></div>
+            <div class="answer-form">
+                <button id="next-level" class="next-level-btn hidden">Перейти на следующий уровень</button>
+                <button id="restart-game" class="restart-btn">Начать заново</button>
+                <button id="exit-game">Выйти</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
