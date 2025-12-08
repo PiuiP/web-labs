@@ -1,0 +1,357 @@
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.dish-card {
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 35px;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    transition: all 0.2s ease;
+}
+
+/* Супы - красный (томатный) */
+.soups .dish-card:hover {
+    border: 2px solid tomato;
+}
+
+.soups .dish-card:hover .add-button {
+    background-color: #d3d1cb;
+}
+
+.soups .dish-card .add-button:hover {
+    background-color: tomato;
+    color: white;
+}
+
+/* Главные блюда - желтый */
+.mains .dish-card:hover {
+    border: 2px solid #ffcc00;
+}
+
+.mains .dish-card:hover .add-button {
+    background-color: #d3d1cb;
+}
+
+.mains .dish-card .add-button:hover {
+    background-color: #ffcc00;
+    color: white;
+}
+
+/* Напитки - зеленый */
+.drinks .dish-card:hover {
+    border: 2px solid #4CAF50;
+}
+
+.drinks .dish-card:hover .add-button {
+    background-color: #d3d1cb;
+}
+
+.drinks .dish-card .add-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Общие стили карточки */
+.dish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+.dish-card .dish-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dish-card .dish-name {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.dish-card .dish-weight {
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.dish-card .add-button {
+    background-color: #f1eee9;
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin-top: auto;
+    border: none;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* <= 800px */
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dish-card {
+        padding: 20px 30px;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+}
+
+/* <= 600px */
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 1.25em;
+    }
+
+    section h2 {
+        text-align: center;
+    }
+}
+
+/* ---------- Форма заказа ---------- */
+.order-form {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #fafafa;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.order-form h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Основная сетка формы: два блока — заказ и данные */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для блока с выбранным заказом (упрощенные) */
+.order-summary {
+    padding: 0;
+    height: fit-content;
+}
+
+.order-summary h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #222;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+/* Стили для динамического содержимого заказа */
+.selected-order {
+    display: block !important;
+}
+
+.empty-order {
+    color: #666;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.selected-order h4 {
+    margin: 20px 0 10px 0;
+    color: #222;
+    font-size: 1em;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.selected-order p {
+    margin: 8px 0;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.dish-details {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 2px;
+    display: block;
+}
+
+.order-total {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: tomato;
+    text-align: right;
+}
+
+/* Стили для блока данных покупателя (правая колонка) */
+.customer-section {
+    padding: 0 10px;
+}
+
+/* Группа полей */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Поля ввода и селекты */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+/* Стиль для поля времени - минуты, кратные 5 */
+input[type="time"]::-webkit-datetime-edit-minute-field {
+    /* Визуальная подсказка, но реальное ограничение через JS */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Чекбокс */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 4px;
+    transform: scale(1.2);
+}
+
+/* Радиокнопки */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.radio-group div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Мелкий текст примечаний */
+.note {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* Кнопки */
+.button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button-group button[type="reset"] {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.button-group button[type="submit"] {
+    background-color: tomato;
+    color: white;
+}
+
+.button-group button:hover {
+    opacity: 0.9;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .order-summary {
+        order: 2;
+    }
+    
+    .customer-section {
+        order: 1;
+    }
+    
+    .order-form {
+        padding: 20px;
+    }
+    
+    .order-form h2 {
+        font-size: 1.6em;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
