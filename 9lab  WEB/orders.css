@@ -1,0 +1,440 @@
+/* Стили для страницы заказов */
+.orders-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.orders-section {
+  margin-bottom: 40px;
+}
+
+.orders-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  color: #222;
+}
+
+/* Таблица заказов */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.orders-table th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  color: #333;
+  font-size: 0.95em;
+}
+
+.orders-table tr:last-child td {
+  border-bottom: none;
+}
+
+.orders-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Номер заказа */
+.order-number {
+  font-weight: bold;
+  color: tomato;
+}
+
+/* Состав заказа */
+.order-items {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+  font-size: 0.95em;
+}
+
+/* Стоимость */
+.order-price {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Время доставки */
+.delivery-time {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.delivery-time.now {
+  color: #4CAF50;
+}
+
+/* Кнопки действий */
+.order-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: all 0.2s ease;
+  font-family: 'Arial', sans-serif;
+}
+
+.action-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.action-btn.view {
+  color: #2196F3;
+}
+
+.action-btn.edit {
+  color: #FF9800;
+}
+
+.action-btn.delete {
+  color: #F44336;
+}
+
+/* Сообщения */
+.loading-message,
+.no-orders-message,
+.error-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 1.1em;
+  background: #f9f9f9;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.error-message {
+  color: #F44336;
+  background: #ffebee;
+}
+
+/* Модальные окна */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  padding: 20px;
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  color: #222;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-footer {
+  padding: 20px 24px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.modal-ok,
+.modal-save {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.modal-ok:hover,
+.modal-save:hover {
+  background-color: #45a049;
+}
+
+.modal-cancel {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.modal-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.modal-delete {
+  background-color: #F44336;
+  color: white;
+}
+
+.modal-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* Стили для деталей заказа в модальном окне */
+.order-detail {
+  margin-bottom: 20px;
+}
+
+.order-detail:last-child {
+  margin-bottom: 0;
+}
+
+.order-detail h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.order-detail p {
+  margin: 4px 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.detail-items {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item-name {
+  flex: 1;
+}
+
+.detail-item-price {
+  font-weight: bold;
+  color: #333;
+}
+
+.detail-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 2px solid #eee;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.detail-time {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Форма редактирования */
+#edit-order-form .form-group {
+  margin-bottom: 16px;
+}
+
+#edit-order-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+#edit-order-form input[type="text"],
+#edit-order-form input[type="email"],
+#edit-order-form input[type="tel"],
+#edit-order-form input[type="time"],
+#edit-order-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+}
+
+#edit-order-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+#edit-order-form .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+#edit-order-form .radio-group div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#edit-order-form .note {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Стили для кнопок действий с текстом вместо иконок */
+.action-btn.view::before {
+  content: "👁";
+}
+
+.action-btn.edit::before {
+  content: "✏";
+}
+
+.action-btn.delete::before {
+  content: "🗑";
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .orders-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .order-items {
+    max-width: 200px;
+  }
+  
+  .modal {
+    max-width: 95%;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .action-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-table th,
+  .orders-table td {
+    padding: 12px 8px;
+    font-size: 0.9em;
+  }
+  
+  .modal-header {
+    padding: 16px 20px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 16px 20px;
+    flex-direction: column;
+  }
+  
+  .modal-btn {
+    width: 100%;
+  }
+}
